@@ -2,10 +2,11 @@ const express = require('express'),
       path = require('path'),
       morgan = require('morgan')
 
+
 const app = express();
 
 // importing routes
-// const customerRoutes = require('./routes/customer');
+const productoRoutes = require('./routes/index');
 
 // settings
 app.set('port', process.env.PORT || 3000);
@@ -18,7 +19,7 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 
 // routes
-// app.use('/', customerRoutes);
+app.use('/', productoRoutes);
 
 // static files
 app.use(express.static(path.join(__dirname, 'public')));

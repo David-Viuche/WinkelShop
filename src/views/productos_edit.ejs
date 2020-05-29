@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>WinkelShop</title>
+  <!-- NAVIGATION -->
+  <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">WinkelShop</a>
+  </nav>
+
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-5 offset-md-3 card border-off">
+        <div class="card-body">
+          <form action="/update/<%= data.id %>" method="POST">
+            <div class="form-group">
+              <input type="text" name="nombre" value="<%= data.nombre%>" placeholder="Nombre" class="form-control"
+                autofocus>
+            </div>
+            <div class="form-group">
+              <input type="text" name="marca" value="<%= data.marca%>" placeholder="Marca" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="text" name="descripcion" value="<%= data.descripcion%>" placeholder="Descripcion"
+                class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="number" name="precio" value="<%= data.precio%>" placeholder="Precio" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="number" name="cantidad" value="<%= data.cantidad%>" placeholder="Cantidad"
+                class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Guardar Producto
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark footer">
+    <h4>WinkelShop &copy;</h4>
+  </nav>
+</body>
+
+</html>

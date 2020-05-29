@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>WinkelShop</title>
+  <!-- NAVIGATION -->
+  <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">WinkelShop</a>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-5">
+        <div class="card-body d-flex flex-column">
+          <div class="form-group">
+            <h3>Guardar Nuevo Producto</h3>
+
+          </div>
+          <form action="/add" method="POST">
+            <div class="form-group">
+              <input type="text" name="nombre" placeholder="Nombre" class="form-control" autofocus>
+            </div>
+            <div class="form-group">
+              <input type="text" name="marca" placeholder="Marca" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="text" name="descripcion" placeholder="Descripcion" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="number" name="precio" placeholder="Precio" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="number" name="cantidad" placeholder="Cantidad" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Guardar Producto
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <td>n°</td>
+              <td>Nombre</td>
+              <td>Marca</td>
+              <td>Descripcion</td>
+              <td>Precio</td>
+              <td>cantidad</td>
+              <td>Acciones</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (data) { %>
+            <% for(let i = 0; i < data.length; i++) { %>
+            <tr>
+              <td><%= (i + 1) %></td>
+              <td><%= data[i].nombre %></td>
+              <td><%= data[i].marca %></td>
+              <td><%= data[i].descripcion %></td>
+              <td><%= data[i].precio %></td>
+              <td><%= data[i].cantidad %></td>
+              <td>
+                <a href="/update/<%= data[i].id %>" class="btn btn-info btn-block">Editar</a>
+                <a href="/delete/<%= data[i].id %>" class="btn btn-danger btn-block">Eliminar</a>
+              </td>
+            </tr>
+            <% } %>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark footer">
+    <h4>WinkelShop &copy;</h4>
+  </nav>
+</body>
+
+</html>
