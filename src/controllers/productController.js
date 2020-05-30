@@ -8,6 +8,10 @@ controller.list = (req, res) => {
                 data: productos
             });
         })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ error: "Error en el servidor, intente más tarde" });
+        });
 };
 
 controller.save = (req, res) => {
@@ -17,6 +21,10 @@ controller.save = (req, res) => {
         .then(producto => {
             console.log(producto);
             res.redirect('/');
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ error: "Error en el servidor, intente más tarde" });
         });
 };
 
@@ -28,6 +36,10 @@ controller.edit = (req, res) => {
                 data: producto
             })
         })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ error: "Error en el servidor, intente más tarde" });
+        });
 };
 
 controller.update = (req, res) => {
@@ -40,7 +52,15 @@ controller.update = (req, res) => {
                     console.log("producto actualizado", productoNuevo);
                     res.redirect('/');
                 })
+                .catch(err => {
+                    console.log(err);
+                    res.status(500).json({ error: "Error en el servidor, intente más tarde" });
+                });
         })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ error: "Error en el servidor, intente más tarde" });
+        });
 };
 
 controller.delete = (req, res) => {
@@ -49,6 +69,10 @@ controller.delete = (req, res) => {
         .then(() => {
             res.redirect('/');
         })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ error: "Error en el servidor, intente más tarde" });
+        });
 }
 
 module.exports = controller;
